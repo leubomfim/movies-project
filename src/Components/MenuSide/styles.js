@@ -11,7 +11,7 @@ export const MenuBg = styled.div`
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.13);
 
-    @media (max-width: 900px) {
+    @media (max-width: 1224px) {
       ${menu ? 'width: 100%;' : 'width: 0px;'}
     }
   `}
@@ -49,7 +49,7 @@ export const MenuSide = styled.div`
     transition: width 0.5s ease;
 
 
-  @media (max-width: 900px) {
+  @media (max-width: 1224px) {
     ${menu ? 'width: 300px;' : 'width: 0px;'}
     padding: 0;
   }
