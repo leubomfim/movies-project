@@ -26,3 +26,32 @@ export const fetchMovieDetailApi = (setMovieDetails, id) => {
     .then((data) => setMovieDetails(data.data))
     .catch((err) => console.log(err));
 };
+
+export const fetchSeriesDetailApi = (setSeriesDetails, id) => {
+  axios
+    .get(
+      `https://api.themoviedb.org/3/tv/${id}?api_key=213c7bbc1cfe08d03255ea3de80c500e&language=en-US`,
+    )
+    .then((data) => setSeriesDetails(data.data))
+    .catch((err) => console.log(err));
+};
+
+export const fetchSearchApi = (setSeries, setMovies, searchValue) => {
+  axios
+    .get(
+      `https://api.themoviedb.org/3/search/tv?api_key=213c7bbc1cfe08d03255ea3de80c500e&query=${searchValue}`,
+    )
+    .then((data) => {
+      setSeries(data.data.results);
+    })
+    .catch((err) => console.log(err));
+
+  axios
+    .get(
+      `https://api.themoviedb.org/3/search/movie?api_key=213c7bbc1cfe08d03255ea3de80c500e&query=${searchValue}`,
+    )
+    .then((data) => {
+      setMovies(data.data.results);
+    })
+    .catch((err) => console.log(err));
+};

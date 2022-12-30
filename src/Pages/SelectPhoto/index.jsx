@@ -17,13 +17,31 @@ export const SelectPhoto = () => {
   const [icon, setIcon] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [resetPage, setResetPage] = useState(false);
+  const [changed, setChanged] = useState(false);
+  const [counter, setCounter] = useState(3);
   useEffect(() => {
     document.title = 'Change photo';
     localStorage.setItem('movieAccount', JSON.stringify(movieAccount));
     localStorage.setItem('movieLogged', JSON.stringify(logged));
   }, [movieAccount, logged, resetPage]);
 
+  useEffect(() => {
+    let timeout;
+    if (changed) {
+      timeout = setTimeout(() => {
+        setCounter(counter - 1);
+      }, 1000);
+    }
+
+    if (counter === 0) {
+      clearTimeout(timeout);
+      setChanged(false);
+      setCounter(3);
+    }
+  }, [changed, counter]);
+
   const handleChangePhoto = () => {
+    setChanged(true);
     const filterAccount = movieAccount.filter((ac) => {
       return ac.email === logged.email;
     });
@@ -33,10 +51,15 @@ export const SelectPhoto = () => {
 
     setResetPage(!resetPage);
     setOpenMenu(true);
+    setIcon('');
+    setDisabled(true);
   };
 
   return (
     <S.IconsBg>
+      <S.ChangedNoticeBox changed={changed}>
+        <S.ChangedTitle>Successfully changed!</S.ChangedTitle>
+      </S.ChangedNoticeBox>
       <S.Container>
         <S.ChangeBox>
           <S.DisplayIcons>

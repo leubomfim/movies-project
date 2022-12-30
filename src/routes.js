@@ -2,9 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GlobalStyles } from './Constants/styles/global-styles';
 import { MoviesProvider } from './Contexts/context';
 import { Home } from './Pages/Home/index';
-import { Movies } from './Pages/Movies/index';
 import { MyList } from './Pages/MyList/index';
-import { Series } from './Pages/Series/index';
 import { MovieDetails } from './Pages/MovieDetails/index';
 import { Search } from './Pages/Search/index';
 import { SeriesDetails } from './Pages/SeriesDetails';
@@ -24,10 +22,8 @@ export const PagesRoutes = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/movies" element={<Movies />} />
           <Route path="/selectPhoto" element={<SelectPhoto />} />
           <Route path="/mylist" element={<MyList />} />
-          <Route path="/series" element={<Series />} />
           <Route path="/series/:id" element={<SeriesDetails />} />
           <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path="/search" element={<Search />} />

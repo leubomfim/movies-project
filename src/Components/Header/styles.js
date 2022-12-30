@@ -13,8 +13,13 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled.img`
- width: 200px;
- height: 40px;
+  width: 200px;
+  height: 40px;
+
+  @media (max-width: 425px) {
+    width: 170px;
+    margin-left: 30px;
+  };
 `;
 
 export const LogoBox = styled.div`
@@ -25,28 +30,9 @@ export const LogoBox = styled.div`
 export const MenuAndList = styled.div`
   position: absolute;
   left: 100px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-`;
 
-export const List = styled.ul`
-  display: flex;
-  gap: 12px;
-`;
-
-export const Item = styled.li`
-  font-size: 20px;
-
-  & a {
-    color: #c4c4c4;
-    font-weight: 600;
-    transition: all 500ms ease;
-  }
-
-  & a:hover {
-    text-decoration: underline;
-    color: #51A3F5;
+  @media (max-width: 425px) {
+    left: 20px;
   }
 `;
 

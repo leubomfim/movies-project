@@ -6,10 +6,15 @@ export const MenuBg = styled.div`
   position: fixed;
   ${({ menu }) => css`
     ${menu ? 'width: 100%;' : 'width: 80px;'}
+
+    height: 100vh;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.13);
+
+    @media (max-width: 900px) {
+      ${menu ? 'width: 100%;' : 'width: 0px;'}
+    }
   `}
-  height: 100vh;
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0.13);
 `;
 
 export const CloseMenu = styled.button`
@@ -42,6 +47,17 @@ export const MenuSide = styled.div`
     background: linear-gradient(20deg, rgba(98,95,105,1) 6%, rgba(37,29,54,1) 39%);
     overflow: hidden;
     transition: width 0.5s ease;
+
+
+  @media (max-width: 900px) {
+    ${menu ? 'width: 300px;' : 'width: 0px;'}
+    padding: 0;
+  }
+
+  @media (max-width: 600px) {
+    ${menu ? 'width: 240px;' : 'width: 0px;'}
+    padding: 0;
+  }
   `}
 `;
 
@@ -112,16 +128,17 @@ export const UserPhoto = styled.button`
   border: 3px solid #c4c4c4;
   border-radius: 59%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.6s ease;
   overflow: hidden;
   margin-bottom: 15px;
 
   &:hover {
     background-color: #c4c4c425;
+    border-color: #51A3F5;
+    color:  #51A3F5;
   }
 
   & svg {
-    transition: all 0.3s ease;
     width: 200px;
     height: 200px;
     ${({ openMenu }) => css`

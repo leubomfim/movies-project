@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import P from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,19 +14,22 @@ export const MoviesProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [openMenu, setOpenMenu] = useState(false);
 
-  // const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(window.innerWidth);
 
-  // const detectSize = () => {
-  //   setWidth(window.innerWidth);
-  // };
+  const detectSize = () => {
+    setWidth(window.innerWidth);
+  };
 
-  //   window.addEventListener('resize', detectSize);
+  useEffect(() => {
+    window.addEventListener('resize', detectSize);
 
-  // return () => {
-  //   window.removeEventListener('resize', detectSize);
-  // };
+    return () => {
+      window.removeEventListener('resize', detectSize);
+    };
+  }, []);
 
   const moviesObject = {
+    width,
     movieAccount,
     setMovieAccount,
     navigate,

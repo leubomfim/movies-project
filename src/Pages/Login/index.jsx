@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorLength, setErrorLength] = useState('');
+  const [error, setError] = useState('');
 
   const { movieAccount, logged, navigate, setLogged } = useMoviesContext();
 
@@ -23,40 +23,43 @@ export const Login = () => {
     localStorage.setItem('movieLogged', JSON.stringify(logged));
   }, [logged, movieAccount]);
 
-  // const username = name.trim();
-  // const userEmail = email.trim();
-  // const userPassword = password.trim();
-
   const handleRegisterAccount = (e) => {
     e.preventDefault();
     if (password <= 5) {
-      setErrorLength('Need 6 or more letters.');
+      setError('error');
       return;
     } else if (movieAccount.length > 0) {
       const accountFilter = movieAccount.filter((ac) => {
         return ac.email === email;
       });
-
-      if (
+      if (accountFilter[0] === undefined) {
+        console.log('cu');
+        setError('error');
+      } else if (
         accountFilter[0].email === email &&
         accountFilter[0].password === password
       ) {
         setLogged(accountFilter[0]);
         navigate('/');
       } else {
-        console.log("Account don't exist");
+        setError('error');
       }
     } else {
-      console.log("Account don't exist");
+      setError('error');
     }
   };
+
+  console.log(error);
 
   return (
     <SR.FormBg>
       <SR.Form onSubmit={(e) => handleRegisterAccount(e)}>
+        {error === 'error' && (
+          <S.Small error={error}>Email or password incorrect!</S.Small>
+        )}
         <SR.FormTitle>Log In</SR.FormTitle>
         <SR.FormDisplay>
-          <SR.FormControl>
+          <S.FormControl>
             <S.FormInput
               required={true}
               id="email"
@@ -67,8 +70,8 @@ export const Login = () => {
             <SR.LabelEmail email={email} className="label" htmlFor="email">
               Email
             </SR.LabelEmail>
-          </SR.FormControl>
-          <SR.FormControl>
+          </S.FormControl>
+          <S.FormControl>
             <S.FormInput
               required={true}
               id="password"
@@ -83,8 +86,7 @@ export const Login = () => {
             >
               Password
             </SR.LabelPassword>
-            {errorLength}
-          </SR.FormControl>
+          </S.FormControl>
         </SR.FormDisplay>
         <SR.Button>Log In</SR.Button>
       </SR.Form>

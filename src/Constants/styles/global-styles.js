@@ -27,6 +27,16 @@ export const GlobalStyles = createGlobalStyle`
       background: #30293e;
     }
 
+    .container {
+      @media (max-width: 900px) {
+        width: 80% !important;
+      }
+
+      @media (max-width: 600px) {
+        width: 90%;
+      }
+    }
+
     .label {
       font-size: 22px;
       position: absolute;
@@ -68,6 +78,10 @@ export const GlobalStyles = createGlobalStyle`
       border-radius: 50%;
       z-index: 1;
       left: auto;
+
+      @media (max-width: 900px) {
+        display: none;
+      };
     }
 
     .swiper-button-prev {
@@ -84,6 +98,7 @@ export const GlobalStyles = createGlobalStyle`
 
     .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
       bottom: -50px;
+      z-index: 1;
     }
 
     .swiper-pagination-bullet {

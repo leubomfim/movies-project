@@ -16,13 +16,29 @@ export const IconsBg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
+
+  @media (max-width: 900px) {
+    height: 100%;
+  }
 `;
 
 export const ChangeBox = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   gap: 80px;
+  margin-top: 125px;
+
+  @media (max-width: 1440px) {
+    margin-top: 275px;;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 150px;;
+  }
 `;
 
 export const DisplayIcons = styled.div`
@@ -52,6 +68,7 @@ export const ButtonIcon = styled.button`
 export const ButtonsArea = styled.div`
   display: flex;
   gap: 50px;
+  margin-bottom: 60px;
 `;
 
 export const Button = styled.button`
@@ -69,4 +86,32 @@ export const Button = styled.button`
     opacity: 0.3;
     cursor: not-allowed;
   }
+`;
+
+export const ChangedNoticeBox = styled.div`
+  ${({ changed }) => css`
+    ${
+      changed
+        ? `
+          right: 50px;
+
+          @media (max-width: 600px) {
+            right: 30px;
+          }
+        `
+        : 'right: -269px;'
+    }
+  `}
+  transition: all 0.5s ease;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  position: fixed;
+  top: 130px;
+
+`;
+
+export const ChangedTitle = styled.h4`
+  font-size: 23px;
+  color: green;
 `;

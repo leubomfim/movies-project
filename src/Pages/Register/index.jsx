@@ -29,7 +29,8 @@ export const Register = () => {
       email: userEmail,
       password: userPassword,
       userPhoto: '',
-      myList: [],
+      moviesList: [],
+      seriesList: [],
     };
 
     addUser(user);
@@ -52,16 +53,17 @@ export const Register = () => {
     if (name.length < 3) {
       setErrorNameLength('error');
       return;
-    } else if (password.length < 6) {
-      setErrorNameLength('success');
-      setErrorLength('Need 6 or more letters.');
-      return;
     } else if (emailUser.length > 0) {
       const filter = emailUser.filter((el) => {
         return el === email;
       });
       if (filter[0] === email) {
-        setError('This email already exists!');
+        setErrorNameLength('success');
+        setError('error');
+      } else if (password.length < 6) {
+        setError('success');
+        setErrorLength('error');
+        return;
       } else {
         saveUser();
         navigate('/login');
@@ -75,12 +77,11 @@ export const Register = () => {
   return (
     <S.FormBg>
       <S.Form onSubmit={(e) => handleRegisterAccount(e)}>
-        <S.ErrorBox error={error}></S.ErrorBox>
         <S.FormTitle>Create account</S.FormTitle>
         <S.FormDisplay>
           <S.FormName>
             <S.FormControl>
-              <S.FormInput
+              <S.InputName
                 error={errorNameLength}
                 required={true}
                 id="name"
@@ -109,7 +110,7 @@ export const Register = () => {
               )}
             </S.FormControl>
             <S.FormControl>
-              <S.FormInput
+              <S.InputLast
                 required={true}
                 id="last"
                 type="text"
@@ -123,7 +124,8 @@ export const Register = () => {
             </S.FormControl>
           </S.FormName>
           <S.FormControl>
-            <S.FormInput
+            <S.InputEmail
+              error={error}
               required={true}
               id="email"
               type="email"
@@ -133,11 +135,13 @@ export const Register = () => {
             <S.LabelEmail email={email} className="label" htmlFor="email">
               Email
             </S.LabelEmail>
-            {error}
+            {error === 'error' && (
+              <S.Small error={error}>This email already exists!</S.Small>
+            )}
           </S.FormControl>
           <S.FormControl>
-            <S.FormInput
-              errorLength={errorLength}
+            <S.InputPassword
+              error={errorLength}
               required={true}
               id="password"
               type="password"
@@ -151,6 +155,9 @@ export const Register = () => {
             >
               Password
             </S.LabelPassword>
+            {errorLength === 'error' && (
+              <S.Small error={errorLength}>Need 6 or more letters.</S.Small>
+            )}
           </S.FormControl>
         </S.FormDisplay>
         <S.Button>Log In</S.Button>

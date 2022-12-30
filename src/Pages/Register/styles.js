@@ -13,7 +13,12 @@ export const Form = styled.form`
   padding: 20px;
   border-radius: 10px;
   max-width: 700px;
+  position: relative;
   width: 90%;
+
+  @media (max-width: 600px) {
+    padding-bottom: 50px;
+  }
 `;
 
 export const FormTitle = styled.h2`
@@ -24,30 +29,40 @@ export const FormTitle = styled.h2`
   font-weight: normal;
 `;
 
-export const FormInput = styled.input`
-  border-bottom: 1px solid #c4c4c4;
+export const InputName = styled.input`
   ${({ error }) => css`
     ${error === 'error' && 'border-bottom: 1px solid red;'}
     ${error === 'success' && 'border-bottom: 1px solid lightgreen;'}
     ${error === '' && 'border-bottom: 1px solid #c4c4c4;'}
   `}
-  background-color: transparent;
-  padding: 10px;
-  width: 100%;
-  color: #c4c4c4;
-  font-size: 20px;
-  transition: border-bottom 0.5s ease;
+`;
 
-  &:focus {
-    border-bottom: 1px solid #7b2abf;
-  }
+export const InputPassword = styled.input`
+  ${({ error }) => css`
+    ${error === 'error' && 'border-bottom: 1px solid red;'}
+    ${error === 'success' && 'border-bottom: 1px solid lightgreen;'}
+    ${error === '' && 'border-bottom: 1px solid #c4c4c4;'}
+  `}
+`;
 
-  &:focus + label{
-    font-size: 17px;
-    bottom: 33px;
-    color: #757575;
-  }
+export const InputEmail = styled.input`
+  ${({ error }) => css`
+    ${error === 'error' && 'border-bottom: 1px solid red;'}
+    ${error === 'success' && 'border-bottom: 1px solid lightgreen;'}
+    ${error === '' && 'border-bottom: 1px solid #c4c4c4;'}
+  `}
+`;
 
+export const InputLast = styled.input`
+  border-bottom: 1px solid #c4c4c4;
+`;
+
+export const Password = styled.input`
+  ${({ error }) => css`
+    ${error === 'error' && 'border-bottom: 1px solid red;'}
+    ${error === 'success' && 'border-bottom: 1px solid lightgreen;'}
+    ${error === '' && 'border-bottom: 1px solid #c4c4c4;'}
+  `}
 `;
 
 export const FormDisplay = styled.div`
@@ -59,11 +74,35 @@ export const FormDisplay = styled.div`
 export const FormControl = styled.div`
   width: 100%;
   position: relative;
+
+  & input {
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    color: #c4c4c4;
+    font-size: 20px;
+    transition: border-bottom 0.5s ease;
+
+    &:focus {
+      border-bottom: 1px solid #7b2abf;
+    }
+
+    &:focus + label{
+      font-size: 17px;
+      bottom: 33px;
+      color: #757575;
+    }
+  }
 `;
 
 export const FormName = styled.div`
   display: flex;
   gap: 15px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 35px;
+  }
 `;
 
 export const LabelName = styled.label`
@@ -144,11 +183,4 @@ export const Small = styled.small`
   font-size: 15px;
   bottom: -25px;
   left: 9px;
-`;
-
-export const ErrorBox = styled.div`
-
-`;
-export const ErrorText = styled.p`
-
 `;

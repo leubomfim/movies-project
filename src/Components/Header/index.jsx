@@ -19,14 +19,6 @@ export const Header = () => {
         >
           <BiMenuAltLeft />
         </S.MenuButton>
-        <S.List>
-          <S.Item>
-            <Link to="/movies">Movies</Link>
-          </S.Item>
-          <S.Item>
-            <Link to="/series">Series</Link>
-          </S.Item>
-        </S.List>
       </S.MenuAndList>
       <Container>
         <S.LogoBox>

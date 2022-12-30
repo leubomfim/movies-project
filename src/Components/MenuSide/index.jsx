@@ -6,7 +6,7 @@ import {
   AiOutlineSearch,
 } from 'react-icons/ai';
 import { IoMdAdd } from 'react-icons/io';
-import { BiCameraMovie, BiMoviePlay } from 'react-icons/bi';
+import { BiLogOut } from 'react-icons/bi';
 import * as S from './styles';
 import { Link } from 'react-router-dom';
 
@@ -82,21 +82,27 @@ export const MenuSide = () => {
                   <AiOutlineSearch /> {openMenu ? 'Search' : ''}
                 </Link>
               </S.Item>
-              <S.Item>
-                <Link to="/mylist" onClick={() => setOpenMenu(false)}>
-                  <IoMdAdd /> {openMenu ? 'My List' : ''}
-                </Link>
-              </S.Item>
-              <S.Item>
-                <Link to="/series" onClick={() => setOpenMenu(false)}>
-                  <BiMoviePlay /> {openMenu ? 'Series' : ''}
-                </Link>
-              </S.Item>
-              <S.Item>
-                <Link to="/movies" onClick={() => setOpenMenu(false)}>
-                  <BiCameraMovie /> {openMenu ? 'Movies' : ''}
-                </Link>
-              </S.Item>
+              {Object.values(logged).length > 0 ? (
+                <S.Item>
+                  <Link to="/mylist" onClick={() => setOpenMenu(false)}>
+                    <IoMdAdd /> {openMenu ? 'My List' : ''}
+                  </Link>
+                </S.Item>
+              ) : null}
+              {Object.values(logged).length > 0 ? (
+                <S.Item>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      localStorage.removeItem('movieLogged');
+                      setOpenMenu(false);
+                      window.onload();
+                    }}
+                  >
+                    <BiLogOut /> {openMenu ? 'Log out' : ''}
+                  </Link>
+                </S.Item>
+              ) : null}
             </S.List>
           </nav>
         </div>

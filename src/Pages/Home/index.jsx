@@ -1,7 +1,5 @@
 import { SwiperSlide } from 'swiper/react';
 import { Container } from '../../Components/Container';
-import { Header } from '../../Components/Header';
-import { MenuSide } from '../../Components/MenuSide';
 import { SwiperComponent } from '../../Components/SwiperComponent';
 import * as S from './styles';
 
@@ -38,8 +36,6 @@ export const Home = () => {
       {movies.length === 0 && tvShows.length === 0 && <Loading />}
       {movies.length > 0 && tvShows.length > 0 && (
         <>
-          <MenuSide />
-          <Header link={false} />
           <S.Section>
             <Container>
               <S.SectionTitle>Movies you might like</S.SectionTitle>
@@ -49,7 +45,7 @@ export const Home = () => {
                   <SwiperComponent>
                     {movies.map((el) => (
                       <SwiperSlide key={el.id} className="slide">
-                        <div>
+                        <S.PostBox>
                           <S.Button
                             onClick={() => navigate(`/movies/${el.id}`)}
                           >
@@ -61,7 +57,7 @@ export const Home = () => {
                               />
                             </div>
                           </S.Button>
-                        </div>
+                        </S.PostBox>
                       </SwiperSlide>
                     ))}
                   </SwiperComponent>
@@ -71,7 +67,9 @@ export const Home = () => {
           </S.Section>
           <S.Section>
             <Container>
-              <S.SectionTitle>Series you might be interested in</S.SectionTitle>
+              <S.SectionTitle style={{ whiteSpace: 'normal' }}>
+                Series you might be interested in
+              </S.SectionTitle>
               {tvShows.length === 0 && null}
               {tvShows.length > 0 && (
                 <S.Movies>

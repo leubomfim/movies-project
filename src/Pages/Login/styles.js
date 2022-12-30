@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
+export const FormControl = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
 export const FormInput = styled.input`
-  border-bottom: 1px solid #c4c4c4;
-  ${({ error }) => css`
-    ${error === 'error' && 'border-bottom: 1px solid red;'}
-    ${error === 'success' && 'border-bottom: 1px solid lightgreen;'}
-    ${error === '' && 'border-bottom: 1px solid #c4c4c4;'}
-  `}
   background-color: transparent;
   padding: 10px;
   width: 100%;
@@ -23,7 +22,7 @@ export const FormInput = styled.input`
     bottom: 33px;
     color: #757575;
   }
-
+  border-bottom: 1px solid #c4c4c4;
 `;
 
 export const Button = styled.button`
@@ -40,16 +39,14 @@ export const Button = styled.button`
 export const Small = styled.small`
   ${({ error }) => css`
     ${error === 'error' && 'color: red;'}
-    ${
-      error === 'success' &&
-      `
-        color: lightgreen;
-      `
-    }
-    ${error === '' && null}
   `}
   position: absolute;
-  font-size: 15px;
-  bottom: -25px;
-  left: 9px;
+  font-size: 17px;
+  top: 40px;
+  left: 20px;
+
+  @media (max-width: 600px) {
+    top: auto;
+    bottom: 15px;
+  }
 `;
