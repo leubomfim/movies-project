@@ -3,7 +3,6 @@ import * as S from './styles';
 import * as Sp from '../SelectPhoto/styles';
 import { useParams } from 'react-router-dom';
 import { fetchMovieDetailApi } from '../../services/api';
-import { Container } from '../../Components/Container';
 import { useMoviesContext } from '../../Contexts/context';
 import { Loading } from '../../Components/Loading';
 
@@ -85,7 +84,7 @@ export const MovieDetails = () => {
           <Sp.ChangedNoticeBox changed={added}>
             <Sp.ChangedTitle>Added to list!</Sp.ChangedTitle>
           </Sp.ChangedNoticeBox>
-          <Container>
+          <S.Container>
             <S.DetailsBox>
               <S.Post
                 src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
@@ -97,7 +96,8 @@ export const MovieDetails = () => {
                   <S.Paragraph
                     style={{
                       marginBottom: '20px',
-                      width: '800px',
+                      maxWidth: '800px',
+                      width: '100%',
                       textAlign: 'justify',
                     }}
                   >
@@ -120,7 +120,7 @@ export const MovieDetails = () => {
                       <S.Paragraph>
                         <S.Span>Note:</S.Span> {movieDetails.vote_average}
                       </S.Paragraph>
-                      <S.Paragraph style={{ width: '350px' }}>
+                      <S.Paragraph style={{ maxWidth: '350px', width: '100%' }}>
                         <S.Span>genres:</S.Span>{' '}
                         {movieDetails.genres.length === 0 && 'No Genres.'}
                         {movieDetails.genres.length === 1 &&
@@ -187,7 +187,7 @@ export const MovieDetails = () => {
                         <S.Span>Production country:</S.Span>{' '}
                         {movieDetails.production_countries[0].name}.
                       </S.Paragraph>
-                      <S.Paragraph style={{ width: '350px' }}>
+                      <S.Paragraph style={{ maxWidth: '350px', width: '100%' }}>
                         <S.Span>Production companies:</S.Span>{' '}
                         {movieDetails.production_companies.length === 0 &&
                           'No Companies.'}
@@ -251,7 +251,7 @@ export const MovieDetails = () => {
                 </S.DetailsArea>
               )}
             </S.DetailsBox>
-          </Container>
+          </S.Container>
         </S.Section>
       )}
     </>
