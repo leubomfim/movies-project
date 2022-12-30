@@ -98,7 +98,8 @@ export const SeriesDetails = () => {
                   <S.Paragraph
                     style={{
                       marginBottom: '20px',
-                      width: '800px',
+                      maxWidth: '850px',
+                      width: '100%',
                       textAlign: 'justify',
                     }}
                   >
@@ -115,7 +116,7 @@ export const SeriesDetails = () => {
                       <S.Paragraph>
                         <S.Span>Note:</S.Span> {seriesDetails.vote_average}
                       </S.Paragraph>
-                      <S.Paragraph style={{ width: '350px' }}>
+                      <S.Paragraph style={{ maxWidth: '350px', width: '100%' }}>
                         <S.Span>genres:</S.Span>{' '}
                         {seriesDetails.genres.length === 0 && 'No Genres.'}
                         {seriesDetails.genres.length === 1 &&
@@ -164,7 +165,7 @@ export const SeriesDetails = () => {
                         <S.Span>Episodes:</S.Span>{' '}
                         {seriesDetails.number_of_episodes}.
                       </S.Paragraph>
-                      <S.Paragraph style={{ width: '350px' }}>
+                      <S.Paragraph style={{ maxWidth: '350px', width: '100%' }}>
                         <S.Span>Networks:</S.Span>{' '}
                         {seriesDetails.networks.length === 0 && 'No networks.'}
                         {seriesDetails.networks.length === 1 &&
@@ -204,7 +205,7 @@ export const SeriesDetails = () => {
                             seriesDetails.networks[4].name +
                             '.'}
                       </S.Paragraph>
-                      <S.Paragraph style={{ width: '350px' }}>
+                      <S.Paragraph style={{ maxWidth: '350px', width: '100%' }}>
                         <S.Span>Created by:</S.Span>{' '}
                         {seriesDetails.created_by.length === 0 &&
                           'Not informed the creators.'}
@@ -265,7 +266,7 @@ export const SeriesDetails = () => {
                           : seriesDetails.production_countries[0].name}
                         .
                       </S.Paragraph>
-                      <S.Paragraph style={{ width: '350px' }}>
+                      <S.Paragraph style={{ maxWidth: '350px', width: '100%' }}>
                         <S.Span>Production companies:</S.Span>{' '}
                         {seriesDetails.production_companies.length === 0 &&
                           'No Companies.'}
