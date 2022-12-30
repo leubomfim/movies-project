@@ -33,7 +33,6 @@ export const Login = () => {
         return ac.email === email;
       });
       if (accountFilter[0] === undefined) {
-        console.log('cu');
         setError('error');
       } else if (
         accountFilter[0].email === email &&
@@ -48,8 +47,6 @@ export const Login = () => {
       setError('error');
     }
   };
-
-  console.log(error);
 
   return (
     <SR.FormBg>
