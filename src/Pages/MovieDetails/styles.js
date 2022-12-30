@@ -1,5 +1,27 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1240px;
+
+  @media (max-width: 1440px) {
+    width: 70%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 900px) {
+    width: 90%;
+  }
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+`;
+
 export const Section = styled.section`
   margin: 150px 0px 0;
   padding-bottom: 60px;
@@ -13,6 +35,10 @@ export const DetailsBox = styled.div`
   position: relative;
   gap: 50px;
   align-items: center;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 export const DetailsArea = styled.div`
@@ -27,6 +53,10 @@ export const MovieTitle = styled.h2`
   text-align: center;
   margin-top: 15px;
   font-size: 32px;
+
+  @media (max-width: 600px) {
+    white-space: normal;
+  }
 `;
 
 export const TagLine = styled.h4`
@@ -66,6 +96,15 @@ export const Columns = styled.div`
   gap: 143px;
   align-items: flex-start;
   justify-content: center;
+
+  @media (max-width: 1200px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    gap: 10px;
+    flex-direction: column;
+  }
 `;
 
 export const Post = styled.img`
