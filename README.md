@@ -1,4 +1,4 @@
-<h1 align="center">Movie app.</h1> 
+<h1>Movie app.</h1> 
 
 <div align="center"> <a target="_blank" href="https://movies-project-taupe.vercel.app/">Live Version</a></div>
 &nbsp;
