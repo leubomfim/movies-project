@@ -1,4 +1,4 @@
-<h1>Movie app. :heartbeat:</h1> 
+<h1>Movie app :heartbeat:</h1> 
 
 Aplicativo de filmes e séries, feito para obter informações diversas sobre sua série ou filme favorito.
 
