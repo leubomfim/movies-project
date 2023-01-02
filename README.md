@@ -1,11 +1,10 @@
 <h1 align="center">Movie app.</h1> 
 
-<div align="center"> <a target="_blank" href="https://movies-project-taupe.vercel.app/">Live Version</a>
+<div align="center"> <a target="_blank" href="https://movies-project-taupe.vercel.app/">Live Version</a></div>
 &nbsp;
 
 <img width="100%" src="https://user-images.githubusercontent.com/101958997/210251386-f1b3fa29-4973-43e2-8665-586326e5eb4b.png">
 <img src="https://user-images.githubusercontent.com/101958997/210251460-c49c86db-0712-4efa-9a0a-9cac72212875.png">
-<img src="https://user-images.githubusercontent.com/101958997/190810298-78bdb549-2fd3-4a57-9f09-8c1785a68c90.png">
 <img src="https://user-images.githubusercontent.com/101958997/210251526-76e2566f-76ce-48f2-8661-f1e4fc32c374.png">
 <img src="https://user-images.githubusercontent.com/101958997/210251805-f554898b-3853-45e9-bf0d-35290849af2f.png">
 
