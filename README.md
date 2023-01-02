@@ -1,24 +1,19 @@
 <h1>Movie app.</h1> 
 
+Aplicativo de filmes e séries, feito para obter informações diversas sobre sua série ou filme favorito.
 
+## Objetivo do projeto :heartbeat:
 
-## The challenge :heartbeat:
-
-Um desafio para consumir uma API de países.
-
-Seus usuários devem ser capazes de:
-
-- Visualize o layout ideal para o aplicativo, dependendo do tamanho da tela do dispositivo
-- Veja os estados de foco para todos os elementos interativos na página
-- Gere um novo conselho clicando no ícone de dados
+Desenvolver uma aplicação aonde o usuário possa ver informações de seus filmes favoritos, criar conta, fazer login, adicionar séries ou filmes a sua lista, alterar foto de perfil, etc.
 
 ## Live
 
-<a target="_blank" href="https://movies-project-taupe.vercel.app/">Live Version</a>
+<a href="https://movies-project-taupe.vercel.app/" target="_blank">Live Version</a>
 &nbsp;
 
 ## Technologies used
 
-- HTML5
-- CSS3
-- Javascript
+- React
+- React Router Dom
+- Styled-Components
+- Swiper
